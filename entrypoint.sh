@@ -11,7 +11,7 @@ if [ -z ${KUBECTL_VERSION+x} ] ; then
 else
     echo "Pulling kubectl for version $KUBECTL_VERSION"
     rm /usr/bin/kubectl
-    curl -sL -o /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/"$KUBECTL_VERSION"/bin/linux/amd64/kubectl && \
+    curl -sL -o /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/"$KUBECTL_VERSION"/bin/linux/arm64/kubectl && \
         chmod +x /usr/bin/kubectl
     echo "Using kubectl version: $(kubectl version --client --short)"
 fi
@@ -21,7 +21,7 @@ if [ -z ${IAM_VERSION+x} ] ; then
 else
     echo "Pulling aws-iam-authenticator for version $IAM_VERSION"
     rm /usr/bin/aws-iam-authenticator
-    curl -sL -o /usr/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v"$IAM_VERSION"/aws-iam-authenticator_"$IAM_VERSION"_linux_amd64 && \
+    curl -sL -o /usr/bin/aws-iam-authenticator https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v"$IAM_VERSION"/aws-iam-authenticator_"$IAM_VERSION"_linux_arm64 && \
     chmod +x /usr/bin/aws-iam-authenticator
     echo "Using aws-iam-authenticator version: $(aws-iam-authenticator version)"
 fi
